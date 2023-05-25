@@ -2,7 +2,7 @@ import '../../../app/core/core.dart';
 
 class HomeController extends GetxController with StateMixin<List<UserModel>> {
   final dashboardC = Get.find<DashboardController>();
-  // final listTransaksi = Get.find<SendController>().listTransaksi;
+  // final sendC = Get.find<SendController>();
   List<UserModel> listUser = <UserModel>[];
   final firebaseMethod = FirebaseMethod();
 

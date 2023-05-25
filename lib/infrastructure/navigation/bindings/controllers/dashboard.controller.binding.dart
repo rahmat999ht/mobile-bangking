@@ -13,8 +13,9 @@ class DashboardControllerBinding extends Bindings {
     Get.lazyPut<ProfileController>(
       () => ProfileController(),
     );
-    // Get.lazyPut<SendController>(
-    //   () => SendController(),
-    // );
+    Get.put<TransaksiController>(
+      TransaksiController(),
+      permanent: true,
+    );
   }
 }

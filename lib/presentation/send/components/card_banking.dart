@@ -65,7 +65,7 @@ class CardBanking extends GetView<SendController> {
                                   ),
                                 ),
                           Text(
-                            '${controller.month(date.month)}/${controller.day(date.day)}',
+                            '${controller.transaksiC.month(date.month)}/${controller.transaksiC.day(date.day)}',
                           ),
                         ],
                       ),

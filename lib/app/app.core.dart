@@ -4,7 +4,7 @@ export '/app/interfaces/balance_card.dart';
 export '/app/interfaces/card_profile.dart';
 export '/app/interfaces/icon_custom.dart';
 export '/app/interfaces/service_box.dart';
-export '/app/interfaces/transaction_item.dart';
 export '/app/interfaces/user_box.dart';
 export '/app/theme/colors.dart';
 export '/app/utils/utils.dart';
+export '../presentation/home/components/transaction_item.dart';

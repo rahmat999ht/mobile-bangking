@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../../config.dart';
@@ -55,6 +54,11 @@ class Nav {
       name: Routes.REQUEST,
       page: () => const RequestScreen(),
       binding: RequestControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.ADD_NEW_DELIVERY,
+      page: () => const AddNewDeliveryScreen(),
+      binding: AddNewDeliveryControllerBinding(),
     ),
   ];
 }

@@ -40,7 +40,7 @@ class SendScreen extends GetView<SendController> {
                 colorBorder: AppColor.primary,
                 fontColor: AppColor.primary,
                 width: Get.width * 0.9,
-                onPressed: () {},
+                onPressed: controller.toNewDelivery,
               ),
               20.sizeHeight,
               Obx(() {

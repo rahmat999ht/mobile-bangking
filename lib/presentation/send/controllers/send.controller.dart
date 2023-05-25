@@ -6,41 +6,21 @@ class SendController extends GetxController
     with StateMixin<List<TransaksiModel>> {
   final List<UserModel> listUser = Get.find<HomeController>().listUser;
   final dashboardC = Get.find<DashboardController>();
+  final transaksiC = Get.find<TransaksiController>();
   final firebaseMethod = FirebaseMethod();
 
   final counter = 0.obs;
   final amountC = TextEditingController();
-  final valueButton = ''.obs;
   final isLoading = false.obs;
 
-  List<TransaksiModel> listTransaksi = [];
+  List<TransaksiModel> listTransaksiUserLogin = [];
 
   void loadingState() {
     isLoading.value = !isLoading.value;
   }
 
-  String day(int isDay) {
-    String value = '';
-    if (isDay.toString().length == 1) {
-      value = "0$isDay";
-      log(value, name: 'month');
-    } else {
-      value = "$isDay";
-      log(value, name: 'month');
-    }
-    return value;
-  }
-
-  String month(int isMount) {
-    String value = '';
-    if (isMount.toString().length == 1) {
-      value = "0$isMount";
-      log(value, name: 'month');
-    } else {
-      value = "$isMount";
-      log(value, name: 'month');
-    }
-    return value;
+  void toNewDelivery() {
+    Get.toNamed(Routes.ADD_NEW_DELIVERY);
   }
 
   void add() {
@@ -110,25 +90,14 @@ class SendController extends GetxController
     }
   }
 
-  String valueBtn() {
-    return valueButton.value = amountC.text;
-  }
-
   @override
   void onInit() {
-    valueBtn();
-    final dataTransaksi = firebaseMethod.getTransaction().snapshots();
-    dataTransaksi.listen((event) {
-      if (event.size != 0) {
-        listTransaksi = List.generate(
-          event.docs.length,
-          (index) => TransaksiModel.fromDocumentSnapshot(event.docs[index]),
-        );
-        change(listTransaksi, status: RxStatus.success());
-      } else {
-        change([], status: RxStatus.empty());
-      }
-    });
+    final listTransaksiUserLogin = transaksiC.listTransaksiUserLogin;
+    if (listTransaksiUserLogin.isNotEmpty) {
+      change(listTransaksiUserLogin, status: RxStatus.success());
+    } else {
+      change([], status: RxStatus.empty());
+    }
     super.onInit();
   }
 }

@@ -20,7 +20,9 @@ class HomeScreen extends GetView<HomeController> {
               40.sizeHeight,
               buildServices(controller),
               20.sizeHeight,
-              buildTransactionTitle(),
+              const TransactionTitle(),
+              20.sizeHeight,
+              const TransaksiToDay(),
             ],
           ),
         ),
@@ -41,18 +43,6 @@ class HomeScreen extends GetView<HomeController> {
   //     scrollDirection: Axis.horizontal,
   //     child: Row(
   //       children: [...users],
-  //     ),
-  //   );
-  // }
-
-  // Widget _buildTransanctions() {
-  //   return Column(
-  //     children: List.generate(
-  //       5,
-  //       (index) => TransactionItem(
-  //         e,
-  //         idLogin: controller.dashboardC.userModel!.id,
-  //       ),
   //     ),
   //   );
   // }

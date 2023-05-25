@@ -1,6 +1,4 @@
-import 'package:get/get.dart';
-
-import '../../../../presentation/send/controllers/send.controller.dart';
+import '../../../../app/core/core.dart';
 
 class SendControllerBinding extends Bindings {
   @override

@@ -1,9 +1,12 @@
-import '../core/core.dart';
+import '../../../app/core/core.dart';
 
-class TransactionItem extends StatelessWidget {
-  const TransactionItem(this.data,
-      {Key? key, this.onTap, required this.idLogin})
-      : super(key: key);
+class TransactionItem extends GetView<TransaksiController> {
+  const TransactionItem(
+    this.data, {
+    Key? key,
+    this.onTap,
+    required this.idLogin,
+  }) : super(key: key);
   final TransaksiModel data;
   final GestureTapCallback? onTap;
   final String idLogin;
@@ -69,8 +72,8 @@ class TransactionItem extends StatelessWidget {
 
   Widget _buildDateAndType() {
     final date = data.uploadDate.toDate();
-    final day = date.day;
-    final month = date.month;
+    final day = controller.day(date.day);
+    final month = controller.month(date.month);
     final year = date.year;
 
     return Row(
@@ -85,11 +88,11 @@ class TransactionItem extends StatelessWidget {
         (data.userLogin!.id == idLogin)
             ? const Icon(
                 Icons.upload_rounded,
-                color: AppColor.green,
+                color: AppColor.red,
               )
             : const Icon(
                 Icons.download_rounded,
-                color: AppColor.red,
+                color: AppColor.green,
               ),
       ],
     );
