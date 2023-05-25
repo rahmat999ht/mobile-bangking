@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>123594767156-en3ivjel22igp5pqjucli0ioh08t03q4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.123594767156-en3ivjel22igp5pqjucli0ioh08t03q4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAFKMdv9-LGNajCuJV-hUbbotj_igPM9zk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>123594767156</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.yayat.mobileBangking</string>
+	<key>PROJECT_ID</key>
+	<string>mobile-banking-386ee</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mobile-banking-386ee.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:123594767156:ios:76e08c2c69ba34ce654361</string>
+</dict>
+</plist>

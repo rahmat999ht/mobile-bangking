@@ -10,6 +10,7 @@ class AppColor {
   static const bottomBarColor = Colors.white;
   static const inActiveIcon = Color(0xFFABBEEC);
   static const shadowColor = Colors.black38;
+  static const bgActiv = Colors.black12;
   static const yellow = Color(0xFFffcb66);
   static const green = Color(0xFFb2e1b5);
   static const pink = Color(0xFFf5bde8);

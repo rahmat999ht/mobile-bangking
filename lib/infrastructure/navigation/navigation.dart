@@ -9,7 +9,7 @@ import 'routes.dart';
 
 class EnvironmentsBadge extends StatelessWidget {
   final Widget child;
-  EnvironmentsBadge({required this.child});
+  const EnvironmentsBadge({super.key, required this.child});
   @override
   Widget build(BuildContext context) {
     var env = ConfigEnvironments.getEnvironments()['env'];
@@ -29,7 +29,7 @@ class Nav {
     GetPage(
       name: Routes.HOME,
       page: () => const HomeScreen(),
-      binding: HomeControllerBinding(),
+      binding: DashboardControllerBinding(),
     ),
     GetPage(
       name: Routes.DASHBOARD,
@@ -39,12 +39,22 @@ class Nav {
     GetPage(
       name: Routes.PROFILE,
       page: () => const ProfileScreen(),
-      binding: ProfileControllerBinding(),
+      binding: DashboardControllerBinding(),
     ),
     GetPage(
       name: Routes.LOGIN,
       page: () => const LoginScreen(),
       binding: LoginControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.SEND,
+      page: () => const SendScreen(),
+      binding: SendControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.REQUEST,
+      page: () => const RequestScreen(),
+      binding: RequestControllerBinding(),
     ),
   ];
 }

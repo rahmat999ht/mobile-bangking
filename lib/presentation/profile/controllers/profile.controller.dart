@@ -1,23 +1,7 @@
 import 'package:get/get.dart';
+import 'package:mobile_bangking/domain/models/user.dart';
+import 'package:mobile_bangking/presentation/dashboard/controllers/dashboard.controller.dart';
 
 class ProfileController extends GetxController {
-  //TODO: Implement ProfileController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
+  final UserModel? userLogin = Get.find<DashboardController>().userModel;
 }

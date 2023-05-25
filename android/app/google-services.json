@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "123594767156",
+    "project_id": "mobile-banking-386ee",
+    "storage_bucket": "mobile-banking-386ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123594767156:android:592abb149af21801654361",
+        "android_client_info": {
+          "package_name": "com.yayat.mobile_bangking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "123594767156-jm92prbrtn9gdr7sj4mg5nu3k049sjob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_Qzkk2f4a5MEfhbDnZ2uBKEGpEZFswvg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "123594767156-jm92prbrtn9gdr7sj4mg5nu3k049sjob.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
