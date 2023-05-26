@@ -1,23 +1,19 @@
 import 'dart:developer';
 
-import 'package:packages/button/button_outline.dart';
-
 import '../../../app/core/core.dart';
 
 class TransaksiController extends GetxController
-    with StateMixin<List<TransaksiModel>> {
+    with StateMixin<List<InitTransaksi>> {
   final dashboardC = Get.find<DashboardController>();
   final firebaseMethod = FirebaseMethod();
-  // final filterC = TextEditingController(text: 'ToDay');
-  // final filter = false.obs;
-  final valueFilter = 'ToDay'.obs;
+  final valueFilter = 'See All'.obs;
   final listFilter = [
     'ToDay',
     'See All',
   ];
 
-  List<TransaksiModel> listTransaksi = [];
-  List<TransaksiModel> listTransaksiUserLogin = [];
+  List<InitTransaksi> listTransaksi = [];
+  List<InitTransaksi> listTransaksiUserLogin = [];
 
   Future alertFilter() async {
     return await Get.defaultDialog(
@@ -53,30 +49,16 @@ class TransaksiController extends GetxController
     );
   }
 
-  void onChanged(List<TransaksiModel> listValue) {
+  void onChanged(List<InitTransaksi> listValue) {
     change(listValue, status: RxStatus.success());
   }
 
-  String day(int isDay) {
+  String zeroLeft(int isInt) {
     String value = '';
-    if (isDay.toString().length == 1) {
-      value = "0$isDay";
-      log(value, name: 'month');
+    if (isInt.toString().length == 1) {
+      value = "0$isInt";
     } else {
-      value = "$isDay";
-      log(value, name: 'month');
-    }
-    return value;
-  }
-
-  String month(int isMount) {
-    String value = '';
-    if (isMount.toString().length == 1) {
-      value = "0$isMount";
-      log(value, name: 'month');
-    } else {
-      value = "$isMount";
-      log(value, name: 'month');
+      value = "$isInt";
     }
     return value;
   }
@@ -86,16 +68,19 @@ class TransaksiController extends GetxController
     final dataTransaksi = firebaseMethod.getTransaction().snapshots();
     dataTransaksi.listen((event) {
       if (event.size != 0) {
-        listTransaksi = List.generate(
-          event.docs.length,
-          (index) => TransaksiModel.fromDocumentSnapshot(event.docs[index]),
-        );
+        listTransaksi = List.generate(event.docs.length, (index) {
+          if (event.docs[index]['isRequest'] == false) {
+            return TransaksiModel.fromDocumentSnapshot(event.docs[index]);
+          } else {
+            return RequestModel.fromDocumentSnapshot(event.docs[index]);
+          }
+        });
         final idUserLogin = dashboardC.userModel!.id;
-        listTransaksiUserLogin = listTransaksi
-            .where(
-              (e) => e.userLogin!.id == idUserLogin,
-            )
-            .toList();
+        listTransaksiUserLogin =
+            listTransaksi.where((e) => e.userLogin!.id == idUserLogin).toList();
+        listTransaksiUserLogin
+            .sort((a, b) => b.uploadDate.compareTo(a.uploadDate));
+
         onChanged(listTransaksiUserLogin);
       } else {
         change([], status: RxStatus.empty());

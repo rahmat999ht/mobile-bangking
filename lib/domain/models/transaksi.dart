@@ -2,24 +2,21 @@
 
 import 'package:mobile_bangking/app/core/core.dart';
 
-class TransaksiModel {
-  final String? id;
-  final DocumentReference? userLogin;
-  final DocumentReference? toUser;
-  final int amount;
-  final Timestamp uploadDate;
+class TransaksiModel extends InitTransaksi {
   TransaksiModel({
-    this.id,
-    this.userLogin,
-    this.toUser,
-    required this.amount,
-    required this.uploadDate,
+    super.id,
+    super.userLogin,
+    super.toUser,
+    super.isRequest,
+    required super.amount,
+    required super.uploadDate,
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'userLogin': userLogin,
       'toUser': toUser,
+      'isRequest': false,
       'amount': amount,
       'uploadDate': uploadDate,
     };
@@ -42,6 +39,7 @@ class TransaksiModel {
       id: id,
       userLogin: userLogin,
       toUser: toUser,
+      isRequest: map['isRequest'] != null ? map['isRequest'] as bool : null,
       amount: map['amount'] as int,
       uploadDate: map['uploadDate'] as Timestamp,
     );

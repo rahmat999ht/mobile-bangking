@@ -2,29 +2,29 @@
 
 import '../../app/core/core.dart';
 
-class RequestModel {
-  final String? id;
-  final DocumentReference? userLogin;
-  final DocumentReference? toUser;
-  final String descriptions;
-  final int amount;
-  final Timestamp uploadDate;
+class RequestModel extends InitTransaksi {
+  final String? descriptions;
+  final bool? isComfir;
   RequestModel({
-    this.id,
-    this.userLogin,
-    this.toUser,
-    required this.descriptions,
-    required this.amount,
-    required this.uploadDate,
+    super.id,
+    super.userLogin,
+    super.toUser,
+    required super.amount,
+    required super.uploadDate,
+    super.isRequest,
+    this.isComfir,
+    this.descriptions,
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'userLogin': userLogin,
       'toUser': toUser,
-      'descriptions': descriptions,
+      'isRequest': true,
+      'isComfir': false,
       'amount': amount,
       'uploadDate': uploadDate,
+      'descriptions': descriptions,
     };
   }
 
@@ -45,9 +45,12 @@ class RequestModel {
       id: id,
       userLogin: userLogin,
       toUser: toUser,
-      descriptions: map['descriptions'] as String,
+      isRequest: map['isRequest'] != null ? map['isRequest'] as bool : null,
+      isComfir: map['isComfir'] != null ? map['isComfir'] as bool : null,
       amount: map['amount'] as int,
       uploadDate: map['uploadDate'] as Timestamp,
+      descriptions:
+          map['descriptions'] != null ? map['descriptions'] as String : null,
     );
   }
 

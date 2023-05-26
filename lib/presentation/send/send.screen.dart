@@ -1,9 +1,3 @@
-import 'package:mobile_bangking/presentation/send/components/card_amount.dart';
-import 'package:mobile_bangking/presentation/send/components/card_banking.dart';
-import 'package:mobile_bangking/presentation/send/components/swiper.dart';
-import 'package:mobile_bangking/presentation/send/components/to_user.dart';
-import 'package:packages/button/button_outline.dart';
-
 import '../../app/core/core.dart';
 
 class SendScreen extends GetView<SendController> {
@@ -22,16 +16,13 @@ class SendScreen extends GetView<SendController> {
               ListSwiper(state),
               10.sizeHeight,
               Obx(
-                () => toUser(
+                () => toUserName(
                   state,
                   controller.counter.value,
                 ),
               ),
               20.sizeHeight,
-              cardInputAmount(
-                controller.amountC,
-                controller.dashboardC,
-              ),
+              const CardInputAmount(),
               20.sizeHeight,
               ButtonOutline(
                 text: 'Add new Delivery',
@@ -44,7 +35,10 @@ class SendScreen extends GetView<SendController> {
               ),
               20.sizeHeight,
               Obx(() {
-                final user = controller.listUser[controller.counter.value];
+                final isCounter = state[controller.counter.value];
+                final user = controller.listUser.firstWhere(
+                  (e) => e.id == isCounter.toUser?.id,
+                );
                 return ButtonPrymary(
                   text: "Send Money",
                   bgColor: AppColor.primary,

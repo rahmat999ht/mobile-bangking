@@ -1,12 +1,12 @@
-import 'package:mobile_bangking/domain/models/request.dart';
-
 import '../../app/core/core.dart';
 
 class FirebaseMethod {
-  void addTransaction({
+  Future addTransaction({
     Map<String, dynamic>? data,
-  }) {
-    Utils.firebaseFirestore.collection(Utils.transactionCollection).add(data!);
+  }) async {
+    await Utils.firebaseFirestore
+        .collection(Utils.transactionCollection)
+        .add(data!);
   }
 
   void updateUser({
@@ -24,11 +24,17 @@ class FirebaseMethod {
   }
 
   CollectionReference<Map<String, dynamic>> getRequest() {
-    return Utils.firebaseFirestore.collection(Utils.requestCollection);
+    return Utils.firebaseFirestore.collection(Utils.transactionCollection);
   }
 
   CollectionReference<Map<String, dynamic>> getTransaction() {
     return Utils.firebaseFirestore.collection(Utils.transactionCollection);
+  }
+
+  DocumentReference<Map<String, dynamic>> getUserIdFromMap(String idUser) {
+    return Utils.firebaseFirestore
+        .collection(Utils.usersCollection)
+        .doc(idUser);
   }
 
   DocumentReference<UserModel> getUserByID(String idUser) {

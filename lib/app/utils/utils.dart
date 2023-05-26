@@ -4,5 +4,4 @@ class Utils {
   static final firebaseFirestore = FirebaseFirestore.instance;
   static const usersCollection = "users";
   static const transactionCollection = "transaction";
-  static const requestCollection = "request";
 }

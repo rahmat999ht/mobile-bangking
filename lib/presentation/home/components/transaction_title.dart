@@ -31,17 +31,6 @@ class TransactionTitle extends GetView<TransaksiController> {
                       ),
                     ),
                   ),
-                  // TextForm(
-                  //   width: Get.width * 0.15,
-                  //   contentHorizontal: 0,
-                  //   controller: controller.filterC,
-                  //   titel: '',
-                  //   onChanged: (v) {
-                  //     controller.onChanged(v);
-                  //     log(v, name: 'value');
-                  //   },
-                  //   onTap: controller.alertFilter,
-                  // ),
                   const Icon(Icons.expand_more_rounded),
                 ],
               ),

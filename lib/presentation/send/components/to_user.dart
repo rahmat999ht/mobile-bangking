@@ -1,6 +1,6 @@
 import '../../../app/core/core.dart';
 
-StreamBuilder toUser(List<TransaksiModel> listTransaksi, int value) {
+StreamBuilder toUserName(List<InitTransaksi> listTransaksi, int value) {
   final userId = listTransaksi[value].toUser!.id;
   final firebaseMethod = FirebaseMethod();
   return StreamBuilder<DocumentSnapshot<UserModel>>(

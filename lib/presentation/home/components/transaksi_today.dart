@@ -14,7 +14,7 @@ class TransaksiToDay extends GetView<TransaksiController> {
   }
 
   Widget _buildTransanctions(
-    List<TransaksiModel> listTransaksi,
+    List<InitTransaksi> listTransaksi,
   ) {
     return Column(
       children: List.generate(
@@ -23,7 +23,6 @@ class TransaksiToDay extends GetView<TransaksiController> {
           if (listTransaksi.isNotEmpty) {
             return TransactionItem(
               listTransaksi[index],
-              idLogin: controller.dashboardC.userModel!.id,
               onTap: () {},
             );
           } else {

@@ -5,11 +5,9 @@ class TransactionItem extends GetView<TransaksiController> {
     this.data, {
     Key? key,
     this.onTap,
-    required this.idLogin,
   }) : super(key: key);
-  final TransaksiModel data;
+  final InitTransaksi data;
   final GestureTapCallback? onTap;
-  final String idLogin;
 
   @override
   Widget build(BuildContext context) {
@@ -72,20 +70,22 @@ class TransactionItem extends GetView<TransaksiController> {
 
   Widget _buildDateAndType() {
     final date = data.uploadDate.toDate();
-    final day = controller.day(date.day);
-    final month = controller.month(date.month);
+    final hour = controller.zeroLeft(date.hour);
+    final minute = controller.zeroLeft(date.minute);
+    final day = controller.zeroLeft(date.day);
+    final month = controller.zeroLeft(date.month);
     final year = date.year;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Text(
-          '$day $month $year',
+          '$day $month $year / $hour:$minute ',
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: const TextStyle(fontSize: 12, color: Colors.grey),
         ),
-        (data.userLogin!.id == idLogin)
+        (data.isRequest! == false)
             ? const Icon(
                 Icons.upload_rounded,
                 color: AppColor.red,

@@ -5,27 +5,29 @@ class HomeScreen extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildHeader(controller.dashboardC.userModel!),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              20.sizeHeight,
-              buildBalance(
-                controller.dashboardC.userModel!.savings.toString(),
-                controller,
-              ),
-              40.sizeHeight,
-              buildServices(controller),
-              20.sizeHeight,
-              const TransactionTitle(),
-              20.sizeHeight,
-              const TransaksiToDay(),
-            ],
+      appBar: buildHeader(controller.dashboardC.userModel!.id),
+      body: controller.obx(
+        (state) => SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                20.sizeHeight,
+                buildBalance(controller),
+                40.sizeHeight,
+                buildServices(controller),
+                20.sizeHeight,
+                const TransactionTitle(),
+                20.sizeHeight,
+                const TransaksiToDay(),
+              ],
+            ),
           ),
         ),
+        onEmpty: const EmptyState(),
+        onLoading: const LoadingState(),
+        onError: (e) => ErrorState(error: e!),
       ),
     );
   }

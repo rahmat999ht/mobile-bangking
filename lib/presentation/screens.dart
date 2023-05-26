@@ -12,4 +12,8 @@ export 'login/login.screen.dart';
 export 'profile/profile.screen.dart';
 export 'request/request.screen.dart';
 export 'send/components/app_bar_send.dart';
+export 'send/components/card_amount.dart';
+export 'send/components/card_banking.dart';
+export 'send/components/swiper.dart';
+export 'send/components/to_user.dart';
 export 'send/send.screen.dart';
